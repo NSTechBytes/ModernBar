@@ -1,0 +1,346 @@
+[General_S]
+Meter=String
+Text=General
+FontFace=Roboto
+FontWeight=900
+AntiAlias=1
+FontSize=20
+FontColor=255,255,255
+X=150
+Y=30
+
+[m.StartAction]
+Measure=String
+OnUpdateAction=[!SetOption #Set.Blur#_Shape MeterStyle "Blur_Update" ][!SetOption #Set.BlurCorner#_Shape1 MeterStyle "Blur_Update" ][!UpdateMeterGroup Update]
+
+
+[Blur_Update]
+Shape=Rectangle 0,0,70,25,4 | StrokeWidth 0 | Fill Color 69, 174, 19
+Y=r
+DynamicVariables=1
+[Blur_Shape1]
+Shape=Rectangle 0,0,70,25,4 | StrokeWidth 0 | Fill Color 231, 143, 54,100
+Y=r
+DynamicVariables=1
+
+;========================================================================================================================================================;
+;                                                                          Scale                                                                         ;
+;========================================================================================================================================================;
+
+[Scale_S]
+Meter=String
+Text=Size
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=100
+
+[Scale_Shape]
+Meter=Shape
+Shape=Rectangle 0,0,100,25,4 | StrokeWidth 0 | Fill Color 231, 143, 54,100
+X=240r
+Y=r
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput ExecuteBatch 1"]
+
+[Scale String]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(100/2)r
+Y=3r
+Text=#Scale#
+AntiAlias=1
+StringAlign=CenterCenter
+
+[Div]
+Meter=Shape
+Shape=Rectangle 0,0,340,1 | StrokeWidth 0 | Fill Color 255,255,255
+DynamicVariables=1
+X=150
+Y=30r
+
+;========================================================================================================================================================;
+;                                                                          BackGroundColor                                                               ;
+;========================================================================================================================================================;
+
+[BackGroundColor_S]
+Meter=String
+Text=BackGround Color
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=140
+
+[Color]
+Meter=Shape
+Shape=Rectangle 0,0,20,20,15 | StrokeWidth 0 | Fill Color #DefaultColor#
+DynamicVariables=1
+X=320r
+Y=r
+LeftMouseUpAction=["#@#Addons\RainRGB4.exe" "VarName=DefaultColor" "FileName=#@#Vars.nek"][!Refresh *]
+
+[MeterFontColor]
+Meter=String
+StringAlign=Center
+FontFace=Roboto
+FontSize=12
+X=260
+Y=r
+W=100
+Text=
+AntiAlias=1
+SolidColor=#FontColor#
+LeftMouseUpAction=["#@#Addons\RainRGB4.exe" "VarName=FontColor" "FileName=#@#Vars.nek"][!Refresh *]
+FinishAction=[!Refresh *]
+
+[Div_2]
+Meter=Shape
+Shape=Rectangle 0,0,340,1 | StrokeWidth 0 | Fill Color 255,255,255
+DynamicVariables=1
+X=150
+Y=30r
+
+;========================================================================================================================================================;
+;                                                                          BackGroundOpacity                                                             ;
+;========================================================================================================================================================;
+
+[BackGroundopacity_S]
+Meter=String
+Text=BackGround Opacity
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=10r
+
+[BackGroundOpacity_Shape]
+Meter=Shape
+Shape=Rectangle 0,0,100,25,4 | StrokeWidth 0 | Fill Color 231, 143, 54,100
+X=240r
+Y=r
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput2 ExecuteBatch 1"]
+
+
+[BackGroundOpacity_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(100/2)r
+Y=2r
+Text=#Defaultopacity#
+AntiAlias=1
+StringAlign=CenterCenter
+
+[Div_3]
+Meter=Shape
+Shape=Rectangle 0,0,340,1 | StrokeWidth 0 | Fill Color 255,255,255
+DynamicVariables=1
+X=150
+Y=30r
+;========================================================================================================================================================;
+;                                                                         Blur                                                            ;
+;========================================================================================================================================================;
+
+[Blur_S]
+Meter=String
+Text=Blur Type
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=10r
+
+[None_Shape]
+Meter=Shape
+X=120r
+MeterStyle=Blur_Shape1
+Group=Update
+LeftMouseUpAction=[!WriteKeyValue Variables Set.Blur  None "#@#Vars.nek"][!RainmeterRefreshApp]
+[None_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=3r
+Text=None
+AntiAlias=1
+
+[Acrylic_Shape]
+Meter=Shape
+X=38r
+Y=-3r
+MeterStyle=Blur_Shape1
+Group=Update
+LeftMouseUpAction=[!WriteKeyValue Variables Set.Blur  Acrylic "#@#Vars.nek"][!RainmeterRefreshApp]
+[Arcylic_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=3r
+Text=Arcylic
+AntiAlias=1
+
+
+[Blur_Shape]
+Meter=Shape
+X=38r
+Y=-2r
+Group=Update
+MeterStyle=Blur_Shape1
+LeftMouseUpAction=[!WriteKeyValue Variables Set.Blur  Blur "#@#Vars.nek"][!RainmeterRefreshApp]
+[Standard_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=3r
+Text=Standard
+AntiAlias=1
+
+
+[Div_4]
+Meter=Shape
+Shape=Rectangle 0,0,340,1 | StrokeWidth 0 | Fill Color 255,255,255
+DynamicVariables=1
+X=150
+Y=30r
+
+;========================================================================================================================================================;
+;                                                                         Blur                                                            ;
+;========================================================================================================================================================;
+
+[Round_S]
+Meter=String
+Text=Round Type
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=10r
+
+[None_Shape1]
+Meter=Shape
+
+X=120r
+MeterStyle=Blur_Shape1
+Group=Update
+LeftMouseUpAction=[!WriteKeyValue Variables Set.BlurCorner  None "#@#Vars.nek"][!RainmeterRefreshApp]
+[None1_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=3r
+Text=None
+AntiAlias=1
+
+
+[RoundSmall_Shape1]
+Meter=Shape
+y=-2r
+X=38r
+MeterStyle=Blur_Shape1
+Group=Update
+LeftMouseUpAction=[!WriteKeyValue Variables Set.BlurCorner RoundSmall "#@#Vars.nek"][!RainmeterRefreshApp]
+[Small_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=3r
+Text=Small
+AntiAlias=1
+
+[Round_Shape1]
+Meter=Shape
+Y=-2r
+X=38r
+MeterStyle=Blur_Shape1
+Group=Update
+LeftMouseUpAction=[!WriteKeyValue Variables Set.BlurCorner  Round "#@#Vars.nek"][!RainmeterRefreshApp]
+[Standard1_F]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(70/2)r
+Y=2r
+Text=Standard
+AntiAlias=1
+
+
+
+
+;========================================================================================================================================================;
+;                                                                        Measures                                                                        ;
+;========================================================================================================================================================;
+
+[MeterInput]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontFace=Roboto
+FontSize=12
+X=390
+Y=100
+W=100
+H=25
+AntiAlias=1
+FocusDismiss=1
+SolidColor=231, 143, 54
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables Scale "$UserInput$""#@#Vars.nek"][!RainmeterRefreshApp]
+DefaultValue="#Scale#"
+DynamicVariables=1
+
+
+
+[MeterInput2]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontFace=Roboto
+FontSize=12
+X=390
+Y=180
+W=100
+H=25
+AntiAlias=1
+FocusDismiss=1
+SolidColor=231, 143, 54
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables Defaultopacity "$UserInput$""#@#Vars.nek"][!RainmeterRefreshApp]
+DefaultValue="#Defaultopacity#"
+DynamicVariables=1
+
+
+
+
+
+
+

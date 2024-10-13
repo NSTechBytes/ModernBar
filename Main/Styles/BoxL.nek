@@ -1,0 +1,40 @@
+[Variables]
+Skin.W=75
+Skin.H=70
+
+[BoxBLua]
+Measure=Script
+ScriptFile=#@#Lua\BoxL.lua
+DynamicVariables=1
+; ---------------------------------------------------------------------------- ;
+;                                   MeterStyles                                ;
+; ---------------------------------------------------------------------------- ;
+[Image:B]
+W=(#ImageWidth#*#Scale#)
+H=(#ImageHeight#*#Scale#)
+X=(((#Skin.W#/2)-#ImageWidth#/2)*#Scale#)
+Y=(70*#Scale#)r
+MouseOverAction=[!ShowMeter Hover:B][!SetVariable HoverIndex:B #CURRENTSECTION#][!UpdateMeter Hover:B][!Redraw]
+MouseLeaveAction=[!HideMeter Hover:B][!Redraw]
+DynamicVariables=1
+; ---------------------------------------------------------------------------- ;
+;                                   Contents                                   ;
+; ---------------------------------------------------------------------------- ;
+
+
+[BackGroundShape]
+Meter=Shape
+Shape=Rectangle 0,0,(#Skin.W#*#Scale#),((#Skin.H#*#TotalShortcuts_Count#)*#Scale#),(#Round#*#Scale#) | StrokeWidth 0 | Fill Color #DefaultColor#,#DefaultOpacity#
+DynamicVariables=1
+
+[Hover:B]
+Meter=Shape
+Shape= Rectangle 0,0,(#HoverW:B#*#Scale#),(#HoverH:B#*#Scale#),(8*#Scale#) | StrokeWidth 0 | Fill Color 200,200,200,50
+X=(((#Skin.H#/2)-#HoverW:B#/2+2)*#Scale#)
+Y=([#HoverIndex:B#:Y]-5*#Scale#)
+DynamicVariables=1
+Hidden=1
+
+
+
+

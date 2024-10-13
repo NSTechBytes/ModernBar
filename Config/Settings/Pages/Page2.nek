@@ -1,0 +1,227 @@
+
+[Update_S]
+Meter=String
+Text=Position
+FontFace=Roboto
+FontWeight=900
+AntiAlias=1
+FontSize=20
+FontColor=255,255,255
+X=150
+Y=30
+
+
+[Version_S]
+Meter=String
+Text=Bar Position
+FontFace=Roboto
+AntiAlias=1
+FontSize=12
+FontColor=255,255,255
+X=150
+Y=100
+
+
+; ---------------------------------------------------------------------------- ;
+;                                     Style                                    ;
+; ---------------------------------------------------------------------------- ;
+
+[Export:M]
+Measure=String
+OnUpdateAction=[!SetOption #Position# MeterStyle "CurrentAlign:S"][!UpdateMeter #Position#][!Redraw]
+
+[Align:S]
+X=(((200-40)/3+10)*0.50)r
+Y=r
+OverColor=100,100,100,200
+LeaveColor=100,100,100,100
+DynamicVariables=1
+Shape=Rectangle 0,0,((200-40)/3),((200-40)/3),3,3 | StrokeWidth 0 | Extend Fill | Scale 0.50,0.50,0,0
+Fill=Fill Color 255,255,255
+MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Fill Color 200,200,200"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "Fill Color 255,255,255][!UpdateMeter #CURRENTSECTION#][!Redraw]
+Triangle=(26.5*0.50),(20*0.50) | LineTo (16.5*0.50),(40*0.50) | LineTo (36.5*0.50),(40*0.50) | ClosePath 1
+LeftMouseUpAction=[!WriteKeyvalue Variables Position #CURRENTSECTION# "#@#Vars.nek"][!RainmeterRefreshApp]
+DirFill=Fill Color 100,100,100,200 | StrokeWidth 0
+[CurrentAlign:S]
+X=(((200-40)/3+10)*0.50)r
+Y=r
+DynamicVariables=1
+Shape=Rectangle 0,0,((200-40)/3),((200-40)/3),3,3 | StrokeWidth 0 | Extend Fill | Scale 0.50,0.50,0,0
+Fill=Fill Color 100,100,100,200
+Triangle=(26.5*0.50),(20*0.50) | LineTo (16.5*0.50),(40*0.50) | LineTo (36.5*0.50),(40*0.50) | ClosePath 1
+DirFill=Fill Color 12,12,12 | StrokeWidth 2 | Stroke Color #set.Accent_Color# | StrokeStartCap Round | StrokeEndCap Round
+
+; ---------------------------------------------------------------------------- ;
+;                                    Content                                   ;
+; ---------------------------------------------------------------------------- ;
+
+[AlignBox]
+Meter=Shape
+X=r
+Y=(40/2)R
+DynamicVariables=1
+Shape=Rectangle 0,0,200,200,3,3 | StrokeWidth 2 | Fill Color 0,0,0,1 | Extend Fill | Scale 0.50,0.50,0,0
+Fill=Stroke Color 10,10,10,50
+MouseOverAction=[!SetOption #CURRENTSECTION# Fill "Stroke Color 10,10,10,150"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+MouseLeaveAction=[!SetOption #CURRENTSECTION# Fill "Stroke Color 10,10,10,50"][!UpdateMeter #CURRENTSECTION#][!Redraw]
+[TL]
+Meter=Shape
+X=(10*0.50)r
+Y=(10*0.50)r
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 315
+MeterStyle=Align:S
+Hidden=1
+[TC]
+Meter=Shape
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 0
+MeterStyle=Align:S
+LeftMouseUpAction=[!WriteKeyvalue Variables Position #CURRENTSECTION# "#@#Vars.nek"][!WriteKeyvalue Variables Box BoxB "#@#Vars.nek"][!RainmeterRefreshApp]
+[TR]
+Meter=Shape
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 45
+MeterStyle=Align:S
+Hidden=1
+[CL]
+Meter=Shape
+X=((-(200-40)/3*2-20)*0.50)r
+Y=(((200-40)/3+10)*0.50)r
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 270
+MeterStyle=Align:S
+LeftMouseUpAction=[!WriteKeyvalue Variables Position #CURRENTSECTION# "#@#Vars.nek"][!WriteKeyvalue Variables Box BoxL "#@#Vars.nek"][!RainmeterRefreshApp]
+[CC]
+Meter=Shape
+Shape2=Ellipse ((200-40)/3/2*0.50),((200-40)/3/2*0.50),(10*0.50) | Extend DirFill
+MeterStyle=Align:S
+Hidden=1
+[CR]
+Meter=Shape
+Shape2=Path Triangle | Extend DirFill  | OffSet 0,(-2.5*0.50) | Rotate 90
+MeterStyle=Align:S
+LeftMouseUpAction=[!WriteKeyvalue Variables Position #CURRENTSECTION# "#@#Vars.nek"][!WriteKeyvalue Variables Box BoxL "#@#Vars.nek"][!RainmeterRefreshApp]
+[BL]
+Meter=Shape
+X=((-(200-40)/3*2-20)*0.50)r
+Y=(((200-40)/3+10)*0.50)r
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 225
+MeterStyle=Align:S
+Hidden=1
+[BC]
+Meter=Shape
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 180
+MeterStyle=Align:S
+LeftMouseUpAction=[!WriteKeyvalue Variables Position #CURRENTSECTION# "#@#Vars.nek"][!WriteKeyvalue Variables Box BoxB "#@#Vars.nek"][!RainmeterRefreshApp]
+[BR]
+Meter=Shape
+Shape2=Path Triangle | Extend DirFill | OffSet 0,(-2.5*0.50) | Rotate 135
+MeterStyle=Align:S
+Hidden=1
+; ---------------------------------------------------------------------------- ;
+;                                    Config                                    ;
+; ---------------------------------------------------------------------------- ;
+
+
+[Xpad]
+Meter=String
+Text=X-padding size
+X=150
+Y=270
+FontColor=255,255,255
+FontFace=Roboto
+AntiAlias=1
+DynamicVariables=1
+[Xpadd_Shape]
+Meter=Shape
+Shape=Rectangle 0,0,100,25,4 | StrokeWidth 0 | Fill Color 231, 143, 54,100
+X=240r
+Y=r
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput ExecuteBatch 1"]
+[Xpad String]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(100/2)r
+Y=3r
+Text=#Xpad#
+AntiAlias=1
+StringAlign=CenterCenter
+[Div_1]
+Meter=Shape
+Shape=Rectangle 0,0,340,1 | StrokeWidth 0 | Fill Color 255,255,255
+DynamicVariables=1
+X=150
+Y=30r
+
+[Ypad]
+Meter=String
+Text=Y-padding size
+X=150
+Y=320
+FontColor=255,255,255
+FontFace=Roboto
+AntiAlias=1
+DynamicVariables=1
+[Ypad_Shape]
+Meter=Shape
+Shape=Rectangle 0,0,100,25,4 | StrokeWidth 0 | Fill Color 231, 143, 54,100
+X=240r
+Y=r
+DynamicVariables=1
+LeftMouseUpAction=[!PluginBang "MeterInput2 ExecuteBatch 1"]
+[Ypad String]
+Meter=String
+StringAlign=Center
+FontColor=255,255,255
+FontFace=Roboto
+FontSize=11
+X=(100/2)r
+Y=3r
+Text=#YPad#
+AntiAlias=1
+StringAlign=CenterCenter
+
+;========================================================================================================================================================;
+;                                                                        Measures                                                                        ;
+;========================================================================================================================================================;
+
+[MeterInput]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontFace=Roboto
+FontSize=12
+X=390
+Y=270
+W=100
+H=25
+AntiAlias=1
+FocusDismiss=1
+SolidColor=231, 143, 54
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables XPad "$UserInput$""#@#Vars.nek"][!RainmeterRefreshApp]
+DefaultValue="#XPad#"
+DynamicVariables=1
+
+
+
+[MeterInput2]
+Measure=Plugin
+Plugin=InputText.dll
+StringAlign=Center
+FontFace=Roboto
+FontSize=12
+X=390
+Y=320
+W=100
+H=25
+AntiAlias=1
+FocusDismiss=1
+SolidColor=231, 143, 54
+FontColor=255,255,255
+Command1=[!WriteKeyValue Variables YPad "$UserInput$""#@#Vars.nek"][!RainmeterRefreshApp]
+DefaultValue="#YPad#"
+DynamicVariables=1
+
