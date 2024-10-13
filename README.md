@@ -1,6 +1,6 @@
 # ModernBar - Rainmeter Skin
 
-![ModernBar Screenshot](https://github.com/NSTechBytes/Projects-Templates/blob/main/RainmeterSkins/ModernBar/modernbar_9_2.jpg)
+![ModernBar Screenshot](https://github.com/NSTechBytes/Projects-Templates/blob/main/RainmeterSkins/ModernBar/Screenshot%20(138).png)
 
 ModernBar is a sleek and modern Rainmeter skin featuring a frosted glass effect and customizable shortcut icons. It is designed for simplicity and functionality, allowing users to quickly access their favorite apps and websites directly from their desktop.
 
@@ -12,7 +12,7 @@ ModernBar is a sleek and modern Rainmeter skin featuring a frosted glass effect 
 ## Installation
 
 1. Download and install [Rainmeter](https://www.rainmeter.net/).
-2. Download the ModernBar skin from the [Releases](https://github.com/yourusername/ModernBar/releases) section.
+2. Download the ModernBar skin from the [Releases](https://github.com/NSTechBytes/ModernBar/releases) section.
 3. Extract the `ModernBar` folder into your Rainmeter `Skins` directory (usually located at `Documents\Rainmeter\Skins`).
 4. Open Rainmeter, click on the ModernBar skin, and load it.
 
