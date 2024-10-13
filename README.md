@@ -1,6 +1,6 @@
 # ModernBar - Rainmeter Skin
 
-![ModernBar Screenshot](path_to_screenshot)
+![ModernBar Screenshot](https://github.com/NSTechBytes/Projects-Templates/blob/main/RainmeterSkins/ModernBar/modernbar_9_2.jpg)
 
 ModernBar is a sleek and modern Rainmeter skin featuring a frosted glass effect and customizable shortcut icons. It is designed for simplicity and functionality, allowing users to quickly access their favorite apps and websites directly from their desktop.
 
